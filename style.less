@@ -1,0 +1,56 @@
+@lightBlue: #ddf;
+@lightGreen: #dfd;
+@lightRed: #fdd;
+
+@defaultThemeColor: @lightBlue;
+
+@defaultThemeColor:spin(@lightBlue, 250);
+
+@defaultRadius: 30px;
+
+.RoundedShape(@radius:@defaultRadius) {
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-o-border-radius: @radius;
+}
+
+.Round {
+	.RoundedShape(100%);
+}
+
+.RoundedSquare(@radius:@defaultRadius){
+	.RoundedShape(@radius);
+}
+
+@defaultShapesWidth: 200px;
+
+@borderSize:@defaultShapesWidth * 0.1;
+
+@borderColor:@defaultThemeColor - #222;
+
+@borderColor:desaturate(@defaultThemeColor, 100%);
+
+@borderColor:darken(desaturate(@defaultThemeColor, 100%),20%);
+
+.shape {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background: @defaultThemeColor;
+	margin: 20px;
+	border: @borderSize solid @borderColor;
+}
+
+#shape1 {
+	.Round;
+}
+
+#shape2 {
+	.RoundedSquare;
+}
+
+#shape3 {
+	.RoundedSquare(60px);
+}
+
